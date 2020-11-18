@@ -32,27 +32,25 @@ namespace Community
         // 로그인
         private void button1_Click(object sender, EventArgs e)
         {
-            string sql = "select pw from user where id = '" + tb_id.Text + "'";
+            string sql = "select * from user where id = '" + tb_id.Text + "'";
             try
             {
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
-                if (!reader.Read()) MessageBox.Show("존재하지 않는 아이디 입니다.");
-                else
+                string[] user = new string[2] { "-1", "-1"};
+                while (reader.Read())
                 {
-                    string pw = "";
-                    while (reader.Read())
-                    {
-                        // 복호화
-                        pw = crypto.Decrypt(reader["pw"].ToString());
-                    }
-                    if (pw.Equals(tb_pw.Text))
-                    {
-                        MessageBox.Show("로그인 성공");
-                    }
-                    else MessageBox.Show("비밀번호가 일치하지 않습니다!");
+                    // 복호화
+                    user[0] = reader["id"].ToString();
+                    user[1] = crypto.Decrypt(reader["pw"].ToString());
                 }
+                if (!user[0].Equals(tb_id.Text))
+                    MessageBox.Show("아이디가 존재하지 않습니다.");
+                else if(user[0].Equals(tb_id.Text) && !user[1].Equals(tb_pw.Text))
+                    MessageBox.Show("비밀번호가 일치하지 않습니다.");
+                else if (user[0].Equals(tb_id.Text) && user[1].Equals(tb_pw.Text)) 
+                    MessageBox.Show("로그인 성공!");
                 conn.Close();
             }
             catch (Exception e1)
@@ -61,3 +59,4 @@ namespace Community
             }
         }
     }
+}
