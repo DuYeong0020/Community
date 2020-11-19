@@ -47,7 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bbs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bbs.Designer.cs">
+      <DependentUpon>Bbs.cs</DependentUpon>
+    </Compile>
     <Compile Include="crypto.cs" />
+    <Compile Include="Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detail.Designer.cs">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +74,18 @@
     <Compile Include="SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Bbs.resx">
+      <DependentUpon>Bbs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detail.resx">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +101,9 @@
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,5 +117,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

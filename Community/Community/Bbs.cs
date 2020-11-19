@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,41 +11,76 @@ using System.Windows.Forms;
 
 namespace Community
 {
+    
     public partial class Bbs : Form
     {
+        private static string mySqlConnStr
+            = "Server=61.84.24.210;Database=myprog;Uid=winprog;Pwd=winprog2020!";
+        DataSet ds;
         public Bbs()
         {
-
             InitializeComponent();
-            listView1.BeginUpdate();
-            ListViewItem lvi1 = new ListViewItem("1");
-            lvi1.SubItems.Add("user01");
-            lvi1.SubItems.Add("사용자01");
-            lvi1.SubItems.Add("서울시 은평구");
-            
-            listView1.Items.Add(lvi1);
+            btnWrite.Click += BtnWrite_Click;
+            DataInit();
 
-            ListViewItem lvi2 = new ListViewItem("2");
-            lvi2.SubItems.Add("Temp1");
-            lvi2.SubItems.Add("임시1");
-            lvi2.SubItems.Add("인천광역시 부평구");
-            
-            listView1.Items.Add(lvi2);
+        }
 
-            ListViewItem lvi3 = new ListViewItem("3");
-            lvi3.SubItems.Add("Tester1");
-            lvi3.SubItems.Add("테스터1");
-            lvi3.SubItems.Add("성남시 분당구");
-            
-            listView1.Items.Add(lvi3);
+        private void BtnWrite_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;             // 추가
+            Update showForm = new Update();
+            showForm.ShowDialog();
+        }
 
-            listView1.EndUpdate();
+        private void DataInit()
+        {
+            try
+            {
+                ds = new DataSet();
+                MySqlConnection conn = new MySqlConnection(mySqlConnStr);
+                // 오픈
+                conn.Open();
+                // 데이터 가져오기 쿼리
+                string sql = "select * from bbs";
+                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds, "bbs");
+                foreach (DataRow r in ds.Tables[0].Rows)
+                {
+                    ListViewItem lv = new ListViewItem(r["no"].ToString());
+                    lv.SubItems.Add(r["title"].ToString());
+                    lv.SubItems.Add(r["content"].ToString());
+                    lv.SubItems.Add(r["id"].ToString());
+                    
+                    listView1.Items.Add(lv);
+                }
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                
+            }
+
+        
+        }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListView lv = (ListView)sender;
+            string sTemp = lv.FocusedItem.SubItems[0].Text;
+            
+            sTemp.Trim();
+            this.Visible = false;             // 추가
+            Detail showForm = new Detail();
+            showForm.Passvalue = sTemp;
+            showForm.ShowDialog();
+
+            
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listView1.FullRowSelect = true;
-            
+
         }
     }
 }
