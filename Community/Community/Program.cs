@@ -16,7 +16,7 @@ namespace Community
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Bbs());
+            Application.Run(new SignIn());
         }
     }
 }

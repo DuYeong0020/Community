@@ -45,26 +45,30 @@
             this.panel1.Controls.Add(this.btnWrite);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(827, 56);
+            this.panel1.Size = new System.Drawing.Size(579, 37);
             this.panel1.TabIndex = 0;
             // 
             // btnWrite
             // 
-            this.btnWrite.Location = new System.Drawing.Point(684, 12);
+            this.btnWrite.Location = new System.Drawing.Point(479, 8);
+            this.btnWrite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnWrite.Name = "btnWrite";
-            this.btnWrite.Size = new System.Drawing.Size(104, 38);
+            this.btnWrite.Size = new System.Drawing.Size(73, 25);
             this.btnWrite.TabIndex = 0;
             this.btnWrite.Text = "작성하기";
             this.btnWrite.UseVisualStyleBackColor = true;
+            this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click_1);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.listView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 56);
+            this.panel2.Location = new System.Drawing.Point(0, 37);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(827, 394);
+            this.panel2.Size = new System.Drawing.Size(579, 263);
             this.panel2.TabIndex = 0;
             // 
             // listView1
@@ -79,8 +83,9 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(827, 394);
+            this.listView1.Size = new System.Drawing.Size(579, 263);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -108,11 +113,12 @@
             // 
             // Bbs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 450);
+            this.ClientSize = new System.Drawing.Size(579, 300);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Bbs";
             this.Text = "Bbs";
             this.panel1.ResumeLayout(false);

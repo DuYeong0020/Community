@@ -14,6 +14,18 @@ namespace Community
     
     public partial class Bbs : Form
     {
+        private string user_id;
+        public string Passvalue
+        {
+            get { return this.user_id; }
+            set { this.user_id = value; }  
+        }
+        private void Bbs_Load(object sender, EventArgs e)
+        {
+            string userid = Passvalue; // 전달 받은 userid
+        }
+
+
         private static string mySqlConnStr
             = "Server=61.84.24.210;Database=myprog;Uid=winprog;Pwd=winprog2020!";
         DataSet ds;
@@ -79,6 +91,11 @@ namespace Community
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnWrite_Click_1(object sender, EventArgs e)
         {
 
         }
