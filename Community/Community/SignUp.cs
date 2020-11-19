@@ -42,8 +42,8 @@ namespace Community
                 if (reader.Read()) MessageBox.Show("이미 존재하는 아이디 입니다.");
                 else
                 {
-                    MessageBox.Show("사용 가능한 아이디 입니다.");
                     idCheck = true;
+                    MessageBox.Show("사용 가능한 아이디 입니다.");
                 }
                 conn.Close();
             }
@@ -57,9 +57,9 @@ namespace Community
         {
             // 비밀번호 확인
             if (pw.Text == pw_check.Text)
-            { 
-                MessageBox.Show("확인 되었습니다.");
+            {
                 pwCheck = true;
+                MessageBox.Show("확인 되었습니다.");
             }
             else MessageBox.Show("비밀번호가 불일치 합니다.");
         }
@@ -67,8 +67,8 @@ namespace Community
         private void button1_Click(object sender, EventArgs e)
         {
             // 회원등록
-            if (idCheck) MessageBox.Show("아이디를 확인해주세요.");
-            else if (pwCheck) MessageBox.Show("비밀번호를 확인해주세요.");
+            if (!idCheck) MessageBox.Show("아이디를 확인해주세요.");
+            else if (!pwCheck) MessageBox.Show("비밀번호를 확인해주세요.");
             else if (textBox4.Text.Equals("")) MessageBox.Show("이름을 입력해주세요.");
             else
             {
@@ -76,7 +76,7 @@ namespace Community
                 list.AddLast("'"+textBox1.Text);
                 list.AddLast(crypto.Encrypt(pw.Text)+"'");
                 string cols = string.Join("','", list);
-                string sql = "insert into mycompany2(id, pw) values(" + cols + ")";
+                string sql = "insert into user(id, pw) values(" + cols + ")";
                 try
                 {
                     conn.Open();
