@@ -46,58 +46,66 @@
             this.panel1.Controls.Add(this.btnRevise);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 76);
+            this.panel1.Size = new System.Drawing.Size(560, 51);
             this.panel1.TabIndex = 0;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(638, 12);
+            this.btnDelete.Location = new System.Drawing.Point(447, 8);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(95, 40);
+            this.btnDelete.Size = new System.Drawing.Size(66, 27);
             this.btnDelete.TabIndex = 0;
             this.btnDelete.Text = "삭제";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnRevise
             // 
-            this.btnRevise.Location = new System.Drawing.Point(521, 12);
+            this.btnRevise.Location = new System.Drawing.Point(365, 8);
+            this.btnRevise.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRevise.Name = "btnRevise";
-            this.btnRevise.Size = new System.Drawing.Size(95, 40);
+            this.btnRevise.Size = new System.Drawing.Size(66, 27);
             this.btnRevise.TabIndex = 0;
             this.btnRevise.Text = "수정";
             this.btnRevise.UseVisualStyleBackColor = true;
+            this.btnRevise.Click += new System.EventHandler(this.btnRevise_Click_1);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(118, 75);
+            this.richTextBox1.Location = new System.Drawing.Point(83, 50);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(538, 287);
+            this.richTextBox1.Size = new System.Drawing.Size(378, 193);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
             // lbNo
             // 
             this.lbNo.AutoSize = true;
-            this.lbNo.Location = new System.Drawing.Point(136, 13);
+            this.lbNo.Location = new System.Drawing.Point(95, 9);
+            this.lbNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbNo.Name = "lbNo";
-            this.lbNo.Size = new System.Drawing.Size(0, 18);
+            this.lbNo.Size = new System.Drawing.Size(0, 12);
             this.lbNo.TabIndex = 1;
             // 
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
-            this.lbTitle.Location = new System.Drawing.Point(284, 13);
+            this.lbTitle.Location = new System.Drawing.Point(199, 9);
+            this.lbTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(0, 18);
+            this.lbTitle.Size = new System.Drawing.Size(0, 12);
             this.lbTitle.TabIndex = 1;
             // 
             // lbWriter
             // 
             this.lbWriter.AutoSize = true;
-            this.lbWriter.Location = new System.Drawing.Point(431, 13);
+            this.lbWriter.Location = new System.Drawing.Point(302, 9);
+            this.lbWriter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbWriter.Name = "lbWriter";
-            this.lbWriter.Size = new System.Drawing.Size(0, 18);
+            this.lbWriter.Size = new System.Drawing.Size(0, 12);
             this.lbWriter.TabIndex = 1;
             // 
             // panel2
@@ -107,18 +115,20 @@
             this.panel2.Controls.Add(this.lbNo);
             this.panel2.Controls.Add(this.richTextBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 76);
+            this.panel2.Location = new System.Drawing.Point(0, 51);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 374);
+            this.panel2.Size = new System.Drawing.Size(560, 249);
             this.panel2.TabIndex = 1;
             // 
             // Detail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(560, 300);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Detail";
             this.Text = "Detail";
             this.panel1.ResumeLayout(false);

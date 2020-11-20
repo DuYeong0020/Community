@@ -93,5 +93,10 @@ namespace Community
         {
             
         }
+
+        private void btnRevise_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
