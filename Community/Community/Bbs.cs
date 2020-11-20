@@ -20,10 +20,7 @@ namespace Community
             get { return this.user_id; }
             set { this.user_id = value; }  
         }
-        private void Bbs_Load(object sender, EventArgs e)
-        {
-            string userid = Passvalue; // 전달 받은 userid
-        }
+    
 
 
         private static string mySqlConnStr
@@ -33,15 +30,34 @@ namespace Community
         {
             InitializeComponent();
             btnWrite.Click += BtnWrite_Click;
+            btnLogout.Click += BtnLogout_Click;
+            this.Load += Bbs_Load1;
             DataInit();
 
+
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;             // 추가
+            SignIn showForm = new SignIn();
+            MessageBox.Show("성공적으로 로그아웃 되었습니다.");
+            showForm.ShowDialog();
+        }
+
+        private void Bbs_Load1(object sender, EventArgs e)
+        {
+            string userid = Passvalue; // 전달 받은 userid
+            lbUser.Text = userid;
         }
 
         private void BtnWrite_Click(object sender, EventArgs e)
         {
             this.Visible = false;             // 추가
             Update showForm = new Update();
+            showForm.Passvalue = lbUser.Text;
             showForm.ShowDialog();
+           
         }
 
         private void DataInit()
@@ -53,7 +69,7 @@ namespace Community
                 // 오픈
                 conn.Open();
                 // 데이터 가져오기 쿼리
-                string sql = "select * from bbs";
+                string sql = "select * from bbs order by no desc";
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(ds, "bbs");
                 foreach (DataRow r in ds.Tables[0].Rows)
@@ -79,11 +95,10 @@ namespace Community
         {
             ListView lv = (ListView)sender;
             string sTemp = lv.FocusedItem.SubItems[0].Text;
-            
             sTemp.Trim();
             this.Visible = false;             // 추가
             Detail showForm = new Detail();
-            showForm.Passvalue = sTemp;
+            showForm.Passvalue = (sTemp+" "+lbUser.Text).Trim();
             showForm.ShowDialog();
 
             

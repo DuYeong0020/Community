@@ -52,14 +52,16 @@ namespace Community
                 tbTitle.Text = ds.Tables[0].Rows[0][1].ToString();
                 rtbContent.Text = ds.Tables[0].Rows[0][2].ToString();
                 tbWriter.Text = ds.Tables[0].Rows[0][3].ToString();
+        
                 conn.Close();
-                btnOK.Text = "수정 완료";
+                btnOK.Text = "수정완료";
 
             }
             catch (Exception)
             {
                 tbNo.Text = "";
-                btnOK.Text = "작성 완료";
+                tbWriter.Text = Passvalue;
+                btnOK.Text = "작성완료";
 
             }
         }
@@ -99,7 +101,7 @@ namespace Community
                 sb.Append(" NULL, ");
                 sb.Append(" '"); sb.Append(tbTitle.Text); sb.Append("', ");
                 sb.Append(" '"); sb.Append(rtbContent.Text); sb.Append("', ");
-                sb.Append(" '"); sb.Append("admin"); sb.Append("'");
+                sb.Append(" '"); sb.Append(tbWriter.Text); sb.Append("'");
                 sb.Append(" ) ");
 
                 string sql = sb.ToString();
@@ -110,11 +112,12 @@ namespace Community
                 MessageBox.Show("글 작성이 완료되었습니다.");
                 this.Visible = false;             // 추가
                 Bbs showForm = new Bbs();
+                showForm.Passvalue = tbWriter.Text;
                 showForm.ShowDialog();
             }
             catch (Exception)
             {
-                MessageBox.Show("dd");
+                MessageBox.Show("오류");
             }
         }
 
@@ -146,6 +149,7 @@ namespace Community
                 MessageBox.Show("글 수정이 되었습니다.");
                 this.Visible = false;             // 추가
                 Bbs showForm = new Bbs();
+                showForm.Passvalue = tbWriter.Text;
                 showForm.ShowDialog();
             }
             catch (Exception ex)
@@ -159,6 +163,7 @@ namespace Community
             MessageBox.Show("글 작성이 취소됩니다.");
             this.Visible = false;             // 추가
             Bbs showForm = new Bbs();
+            showForm.Passvalue = tbWriter.Text;
             showForm.ShowDialog();
         }
 

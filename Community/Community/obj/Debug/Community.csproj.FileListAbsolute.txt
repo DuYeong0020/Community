@@ -51,3 +51,4 @@ C:\Users\92907\Source\Repos\DuYeong0020\Community\Community\Community\obj\Debug\
 C:\Users\92907\Source\Repos\DuYeong0020\Community\Community\Community\obj\Debug\Community.csproj.CopyComplete
 C:\Users\92907\Source\Repos\DuYeong0020\Community\Community\Community\obj\Debug\Community.exe
 C:\Users\92907\Source\Repos\DuYeong0020\Community\Community\Community\obj\Debug\Community.pdb
+C:\Users\DuYeong\Source\Repos\Community\Community\Community\bin\Debug\System.Numerics.Vectors.dll

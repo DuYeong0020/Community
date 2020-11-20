@@ -74,9 +74,10 @@ namespace Community
             {
                 LinkedList<string> list = new LinkedList<string>();
                 list.AddLast("'"+textBox1.Text);
+                list.AddLast(textBox4.Text);
                 list.AddLast(crypto.Encrypt(pw.Text)+"'");
                 string cols = string.Join("','", list);
-                string sql = "insert into user(id, pw) values(" + cols + ")";
+                string sql = "insert into user(id, name, pw) values(" + cols + ")";
                 try
                 {
                     conn.Open();
