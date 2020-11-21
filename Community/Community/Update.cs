@@ -68,16 +68,28 @@ namespace Community
 
         private void BtnOK_Click(object sender, EventArgs e)
         {
-            if (tbNo.Text != "")
-            {
-                
-                SuJung();
-            }
-            else
-            {
-                
-                NewWrite();
 
+
+            try
+            {
+                if (tbTitle.Text.ToString().Trim().Equals(""))
+                {
+                    throw new Exception("제목을 입력해 주세요");
+                }else
+                {
+                    if (tbNo.Text != "")
+                    {
+                        SuJung();
+                    }
+                    else
+                    {
+                        NewWrite();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
             }
         }
 
@@ -86,6 +98,7 @@ namespace Community
             
             try
             {
+
                 string sTitle = tbTitle.Text.ToString();
                 string sContent = rtbContent.Text.ToString();
                 // 데이터 공간 생성
@@ -154,7 +167,7 @@ namespace Community
             }
             catch (Exception ex)
             {
-                MessageBox.Show("dd");
+                MessageBox.Show("잘못작성되었습니다.");
             }
         }
 

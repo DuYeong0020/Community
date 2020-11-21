@@ -68,7 +68,7 @@ namespace Community
             MessageBox.Show("성공적으로 삭제되었습니다.");
             this.Visible = false;             // 추가
             Bbs showForm = new Bbs();
-            showForm.Passvalue = lbWriter.Text;
+            showForm.Passvalue = lbUser.Text;
             showForm.ShowDialog();
         }
 
