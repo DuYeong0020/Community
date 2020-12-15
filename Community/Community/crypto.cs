@@ -11,7 +11,7 @@ namespace Community
 {
     class crypto
     {
-        private static string key = "dkxnsjdkeeeiamznnnnskstt";
+        private static string key = "dkxnsjdkeeeitmznnnnskstt";
         public static string Encrypt(string Input)
 
         {
